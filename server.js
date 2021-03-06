@@ -11,8 +11,8 @@ const bodyParser = require('body-parser')
 // from __dirname we will go into the routes folder and get the index file
 const indexRouter = require('./routes/index')
 const authorRouter = require('./routes/authors')
-
-// set view engine 
+const bookRouter = require('./routes/books')
+    // set view engine 
 app.set('view engine', 'ejs')
     // set where server views come from thisdir/views
     // create views folder in this directory
@@ -44,6 +44,7 @@ db.once('open', () => console.log('Connected to mongoose'))
 
 app.use('/', indexRouter)
 app.use('/authors', authorRouter)
+app.use('/books', bookRouter)
     //set listening port
     // process.env.PORT will receive port number once we connect our database
     // if false(not up yet) we will just call localhost:3000
